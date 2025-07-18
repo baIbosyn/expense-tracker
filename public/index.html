@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Трекер Расходов</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <h1>Добавить расход</h1>
+  <form id="expenseForm">
+    <input name="title" placeholder="Название" required />
+    <input name="amount" type="number" placeholder="Сумма" required />
+    <input name="category" placeholder="Категория" required />
+    <input name="date" type="date" required />
+    <input name="note" placeholder="Комментарий" />
+    <button type="submit">Добавить</button>
+  </form>
+
+  <h2>Все расходы</h2>
+  <ul id="expenseList"></ul>
+
+  <h2>Действия</h2>
+<form id="exportForm">
+  <label for="monthSelect">Месяц:</label>
+  <select id="monthSelect" name="month">
+    <option value="01">Январь</option>
+    <option value="02">Февраль</option>
+    <option value="03">Март</option>
+    <option value="04">Апрель</option>
+    <option value="05">Май</option>
+    <option value="06">Июнь</option>
+    <option value="07">Июль</option>
+    <option value="08">Август</option>
+    <option value="09">Сентябрь</option>
+    <option value="10">Октябрь</option>
+    <option value="11">Ноябрь</option>
+    <option value="12">Декабрь</option>
+  </select>
+
+  <button type="submit">📁 Экспортировать в CSV</button>
+</form>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

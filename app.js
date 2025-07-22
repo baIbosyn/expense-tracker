@@ -43,3 +43,6 @@ app.listen(PORT, () => console.log(`🚀 Сервер запущен: http://loc
 
 const analyticsRoutes = require('./routes/expenseAnalyticsRoutes');
 app.use('/api/analytics', analyticsRoutes);
+
+const urlRoutes = require('./routes/urlRoutes');
+app.use('/', urlRoutes);

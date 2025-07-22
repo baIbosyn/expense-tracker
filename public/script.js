@@ -116,6 +116,37 @@ async function loadCategoryChart() {
   }
 }
 
+// URL Shortener
+document.getElementById('shortenerForm')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const originalUrl = document.getElementById('originalUrl').value;
+
+  try {
+    const res = await fetch('/shorten', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ originalUrl })
+    });
+
+    const data = await res.json();
+
+    if (data.shortUrl) {
+      document.getElementById('shortenedResult').innerHTML = `
+        <p>Сокращённая ссылка:</p>
+        <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>
+      `;
+    } else {
+      document.getElementById('shortenedResult').textContent = 'Ошибка при сокращении';
+    }
+  } catch (err) {
+    console.error(err);
+    document.getElementById('shortenedResult').textContent = 'Ошибка при сокращении';
+  }
+});
+
 
 
 loadExpenses();
